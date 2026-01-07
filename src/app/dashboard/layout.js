@@ -13,6 +13,7 @@ import {
     LogOut,
     Menu,
     X,
+    Sparkles,
 } from 'lucide-react'
 import ProtectedRoute from '@/components/ProtectedRoute'
 
@@ -31,6 +32,7 @@ export default function DashboardLayout({ children }) {
         { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
         { name: 'Categories', href: '/dashboard/categories', icon: FolderOpen },
         { name: 'Posts', href: '/dashboard/posts', icon: FileText },
+        { name: 'AI Agent', href: '/dashboard/posts/agent', icon: Sparkles },
         { name: 'Pages', href: '/dashboard/pages', icon: FileEdit },
         { name: 'Media', href: '/dashboard/media', icon: Image },
     ]

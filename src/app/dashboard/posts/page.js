@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import api from '@/lib/api'
-import { Plus, Edit, Trash2, Search, Filter, Eye } from 'lucide-react'
+import { Plus, Edit, Trash2, Search, Filter, Eye, Sparkles } from 'lucide-react'
 import { format } from 'date-fns'
 
 export default function PostsPage() {
@@ -59,13 +59,22 @@ export default function PostsPage() {
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <h1 className="text-2xl font-bold text-gray-900">Manage Posts</h1>
-                <Link
-                    href="/dashboard/posts/create"
-                    className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700"
-                >
-                    <Plus className="w-5 h-5 mr-2" />
-                    Create New Post
-                </Link>
+                <div className="flex gap-3">
+                    <Link
+                        href="/dashboard/posts/agent"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium text-red-600 bg-white border border-red-600 rounded-lg hover:bg-red-50"
+                    >
+                        <Sparkles className="w-5 h-5 mr-2" />
+                        Post by Agent
+                    </Link>
+                    <Link
+                        href="/dashboard/posts/create"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700"
+                    >
+                        <Plus className="w-5 h-5 mr-2" />
+                        Create New Post
+                    </Link>
+                </div>
             </div>
 
             {/* Filters */}

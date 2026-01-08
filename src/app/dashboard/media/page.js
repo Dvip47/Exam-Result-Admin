@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import api from '@/lib/api'
 import { Upload, Trash2, Copy, Image as ImageIcon, FileText, Loader2 } from 'lucide-react'
 import { format } from 'date-fns'
@@ -118,10 +119,12 @@ export default function MediaPage() {
                         <div key={file._id} className="group relative bg-white border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                             <div className="aspect-square bg-gray-100 flex items-center justify-center overflow-hidden relative">
                                 {file.mimetype.startsWith('image/') ? (
-                                    <img
+                                    <Image
                                         src={file.url}
                                         alt={file.filename}
                                         className="object-cover w-full h-full"
+                                        fill
+                                        unoptimized
                                     />
                                 ) : (
                                     <FileText className="w-12 h-12 text-gray-400" />

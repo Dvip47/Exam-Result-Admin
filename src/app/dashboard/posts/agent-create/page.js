@@ -175,7 +175,7 @@ export default function AgentCreatePage() {
                         <div className="flex justify-between items-start">
                             <div>
                                 <h2 className="text-xl font-semibold text-gray-900">Bulk Creation</h2>
-                                <p className="text-gray-500">Upload an Excel file with a "Job Title" column.</p>
+                                <p className="text-gray-500">Upload an Excel file with a Job Title column.</p>
                             </div>
                             <button
                                 onClick={downloadTemplate}

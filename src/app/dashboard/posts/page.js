@@ -120,6 +120,7 @@ export default function PostsPage() {
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
                         <tr>
+                                                        <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">S No.</th>
                             <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Title</th>
                             <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Category</th>
                             <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Status</th>
@@ -135,8 +136,11 @@ export default function PostsPage() {
                                 </td>
                             </tr>
                         ) : (
-                            filteredPosts.map((post) => (
+                            filteredPosts.map((post, index) => (
                                 <tr key={post._id} className="hover:bg-gray-50">
+                                    <td className="px-6 py-4 text-sm text-gray-500">
+                                        {index + 1}
+                                    </td>
                                     <td className="px-6 py-4">
                                         <div className="text-sm font-medium text-gray-900 line-clamp-1" title={post.title}>{post.title}</div>
                                         <div className="text-sm text-gray-500">{format(new Date(post.createdAt), 'MMM d, yyyy')}</div>

@@ -61,11 +61,19 @@ export default function PostsPage() {
                 <h1 className="text-2xl font-bold text-gray-900">Manage Posts</h1>
                 <div className="flex gap-3">
                     <Link
+                        href="/dashboard/posts/agent-create"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium text-red-600 bg-white border border-red-600 rounded-lg hover:bg-red-50"
+                    >
+                        <Sparkles className="w-5 h-5 mr-2" />
+                        Post by Title {"(AI)"}
+                    </Link>
+
+                    <Link
                         href="/dashboard/posts/agent"
                         className="inline-flex items-center px-4 py-2 text-sm font-medium text-red-600 bg-white border border-red-600 rounded-lg hover:bg-red-50"
                     >
                         <Sparkles className="w-5 h-5 mr-2" />
-                        Post by Agent
+                        Post by Description {"(AI)"}
                     </Link>
                     <Link
                         href="/dashboard/posts/create"

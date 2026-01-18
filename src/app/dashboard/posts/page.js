@@ -132,7 +132,7 @@ export default function PostsPage() {
                             <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Title</th>
                             <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Category</th>
                             <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Status</th>
-                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Last Date</th>
+                            {/* <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Last Date</th> */}
                             <th className="px-6 py-3 text-xs font-medium tracking-wider text-right text-gray-500 uppercase">Actions</th>
                         </tr>
                     </thead>
@@ -164,9 +164,9 @@ export default function PostsPage() {
                                             {post.status.toUpperCase()}
                                         </span>
                                     </td>
-                                    <td className="px-6 py-4 text-sm text-gray-500">
+                                    {/* <td className="px-6 py-4 text-sm text-gray-500">
                                         {post.lastDate ? format(new Date(post.lastDate), 'MMM d, yyyy') : '-'}
-                                    </td>
+                                    </td> */}
                                     <td className="px-6 py-4 text-sm font-medium text-right">
                                         <div className="flex justify-end space-x-2">
                                             <Link href={`/dashboard/posts/${post._id}/preview`} className="text-blue-600 hover:text-blue-900" title="Preview">

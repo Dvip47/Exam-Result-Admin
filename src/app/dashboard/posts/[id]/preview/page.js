@@ -96,9 +96,9 @@ export default function PreviewPostPage() {
 
                     {/* Links */}
                     <div className="flex flex-col gap-3 pt-6">
-                        {post.applyLink && (
-                            <a href={post.applyLink} target="_blank" className="block w-full text-center py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700">
-                                Apply Online
+                        {post.primaryActionLink && (
+                            <a href={post.primaryActionLink} target="_blank" className="block w-full text-center py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700">
+                                {post.category?.primaryActionLabel || "Apply Online/View Details"}
                             </a>
                         )}
                         {post.notificationPdf && (

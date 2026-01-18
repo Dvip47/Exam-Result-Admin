@@ -527,16 +527,7 @@ export default function PostForm({ initialData = null, isEdit = false }) {
                         </div>
                     )}
 
-                    {/* Keep original applyLink for jobs specifically if needed, 
-                        but for now primaryActionLink is the new standard. 
-                        We won't remove applyLink from rendering if it's already used by old posts, 
-                        but we encourage primaryActionLink. */}
-                    {isJob && !watch('primaryActionLink') && watch('applyLink') && (
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 text-amber-600">Legacy Apply Link (Auto-migrating to Primary Link soon)</label>
-                            <input type="url" {...register('applyLink')} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-amber-500 focus:ring-amber-500 sm:text-sm p-2 border bg-amber-50" />
-                        </div>
-                    )}
+
                     <div>
                         <label className="block text-sm font-medium text-gray-700">Notification PDF URL</label>
                         <input type="url" {...register('notificationPdf')} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 sm:text-sm p-2 border" />

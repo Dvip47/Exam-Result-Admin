@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import api from '@/lib/api'
-import { Plus, Edit, Trash2, Search, Filter, Eye, Sparkles } from 'lucide-react'
+import { Plus, Edit, Trash2, Search, Eye, Sparkles } from 'lucide-react'
 import { format } from 'date-fns'
 
 export default function PostsPage() {
@@ -54,7 +54,8 @@ export default function PostsPage() {
     })
 
     if (loading) return <div className="p-4">Loading posts...</div>
-
+console.log(posts)
+console.log(categories)
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
@@ -128,7 +129,7 @@ export default function PostsPage() {
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-gray-50">
                         <tr>
-                                                        <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">S No.</th>
+                            <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">S No.</th>
                             <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Title</th>
                             <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Category</th>
                             <th className="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Status</th>

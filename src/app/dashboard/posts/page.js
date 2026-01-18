@@ -54,8 +54,7 @@ export default function PostsPage() {
     })
 
     if (loading) return <div className="p-4">Loading posts...</div>
-console.log(posts)
-console.log(categories)
+
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">

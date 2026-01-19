@@ -5,8 +5,9 @@ import { useForm, useFieldArray, Controller } from 'react-hook-form'
 import { useRouter, useSearchParams } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import api from '@/lib/api'
-import { Save, X, Loader2, Plus, Trash2, Sparkles } from 'lucide-react'
+import { Save, X, Plus, Trash2, Sparkles } from 'lucide-react'
 import 'react-quill/dist/quill.snow.css'
+import Loader from '@/components/Loader'
 
 // Dynamic import for ReactQuill to avoid SSR issues
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
@@ -170,6 +171,7 @@ export default function PostForm({ initialData = null, isEdit = false }) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 pb-10">
+            {submitting && <Loader fullPage={true} />}
             {error && (
                 <div className="p-4 text-sm text-red-700 bg-red-100 rounded-lg">
                     {error}
@@ -574,17 +576,8 @@ export default function PostForm({ initialData = null, isEdit = false }) {
                     disabled={submitting}
                     className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 disabled:opacity-50"
                 >
-                    {submitting ? (
-                        <>
-                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                            Saving...
-                        </>
-                    ) : (
-                        <>
-                            <Save className="w-4 h-4 mr-2" />
-                            {isEdit ? 'Update Post' : 'Create Post'}
-                        </>
-                    )}
+                    <Save className="w-4 h-4 mr-2" />
+                    {isEdit ? 'Update Post' : 'Create Post'}
                 </button>
             </div>
         </form >

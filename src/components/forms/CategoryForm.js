@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import api from '@/lib/api'
-import { Save, X, Loader2 } from 'lucide-react'
+import { Save, X } from 'lucide-react'
+import Loader from '@/components/Loader'
 
 export default function CategoryForm({ initialData = null, isEdit = false }) {
     const router = useRouter()
@@ -71,6 +72,7 @@ export default function CategoryForm({ initialData = null, isEdit = false }) {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 bg-white p-6 rounded-lg shadow border border-gray-200">
+            {submitting && <Loader fullPage={true} />}
             {error && (
                 <div className="p-4 text-sm text-red-700 bg-red-100 rounded-lg">
                     {error}
@@ -149,17 +151,8 @@ export default function CategoryForm({ initialData = null, isEdit = false }) {
                     disabled={submitting}
                     className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 disabled:opacity-50"
                 >
-                    {submitting ? (
-                        <>
-                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                            Saving...
-                        </>
-                    ) : (
-                        <>
-                            <Save className="w-4 h-4 mr-2" />
-                            {isEdit ? 'Update Category' : 'Create Category'}
-                        </>
-                    )}
+                    <Save className="w-4 h-4 mr-2" />
+                    {isEdit ? 'Update Category' : 'Create Category'}
                 </button>
             </div>
         </form>

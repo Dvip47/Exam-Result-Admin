@@ -5,6 +5,7 @@ import Link from 'next/link'
 import api from '@/lib/api'
 import { Plus, Edit, Trash2, Search } from 'lucide-react'
 import { format } from 'date-fns'
+import Loader from '@/components/Loader'
 
 export default function CategoriesPage() {
     const [categories, setCategories] = useState([])
@@ -48,7 +49,6 @@ export default function CategoriesPage() {
         category.slug.toLowerCase().includes(searchTerm.toLowerCase())
     )
 
-    if (loading) return <div className="p-4">Loading categories...</div>
     if (error) return <div className="p-4 text-red-500">{error}</div>
 
     return (
@@ -96,7 +96,13 @@ export default function CategoriesPage() {
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                        {filteredCategories.length === 0 ? (
+                        {loading ? (
+                            <tr>
+                                <td colSpan="4" className="px-6 py-10 text-center">
+                                    <Loader />
+                                </td>
+                            </tr>
+                        ) : filteredCategories.length === 0 ? (
                             <tr>
                                 <td colSpan="4" className="px-6 py-4 text-center text-gray-500">
                                     No categories found
@@ -111,8 +117,8 @@ export default function CategoriesPage() {
                                     </td>
                                     <td className="px-6 py-4">
                                         <span className={`inline-flex px-2 text-xs font-semibold leading-5 rounded-full ${category.isActive
-                                                ? 'text-green-800 bg-green-100'
-                                                : 'text-red-800 bg-red-100'
+                                            ? 'text-green-800 bg-green-100'
+                                            : 'text-red-800 bg-red-100'
                                             }`}>
                                             {category.isActive ? 'Active' : 'Inactive'}
                                         </span>

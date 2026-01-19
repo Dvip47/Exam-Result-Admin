@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import api from '@/lib/api'
 import { FileText, FolderOpen, Eye, Clock } from 'lucide-react'
+import Loader from '@/components/Loader'
 
 export default function DashboardPage() {
     const [stats, setStats] = useState(null)
@@ -26,7 +27,7 @@ export default function DashboardPage() {
     if (loading) {
         return (
             <div className="flex items-center justify-center h-64">
-                <div className="text-gray-500">Loading...</div>
+                <Loader />
             </div>
         )
     }
@@ -154,8 +155,8 @@ export default function DashboardPage() {
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
                                         <span className={`px-2 py-1 text-xs font-medium rounded-full ${post.status === 'published' ? 'bg-green-100 text-green-800' :
-                                                post.status === 'draft' ? 'bg-yellow-100 text-yellow-800' :
-                                                    'bg-gray-100 text-gray-800'
+                                            post.status === 'draft' ? 'bg-yellow-100 text-yellow-800' :
+                                                'bg-gray-100 text-gray-800'
                                             }`}>
                                             {post.status}
                                         </span>
